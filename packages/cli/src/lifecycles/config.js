@@ -66,7 +66,6 @@ const defaultConfig = {
   },
   isolation: false,
   layoutsDirectory: "layouts",
-  markdown: { plugins: [] },
   optimization: optimizations[0],
   pagesDirectory: "pages",
   plugins: greenwoodPlugins,
@@ -107,7 +106,6 @@ const readAndMergeConfig = async () => {
     const {
       workspace,
       devServer,
-      markdown,
       optimization,
       plugins,
       port,
@@ -233,11 +231,6 @@ const readAndMergeConfig = async () => {
           );
         }
       }
-    }
-
-    if (markdown && Object.keys(markdown).length > 0) {
-      customConfig.markdown.plugins =
-        markdown.plugins && markdown.plugins.length > 0 ? markdown.plugins : [];
     }
 
     if (port) {
